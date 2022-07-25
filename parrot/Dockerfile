@@ -4,7 +4,7 @@ MAINTAINER qeeqbox
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y parrot-tools-full
+#RUN apt-get update && apt-get install -y parrot-tools-full
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends evince file-roller gnome-themes-standard gpicview gtk2-engines-pixbuf ttf-ubuntu-font-family xfce4 xfce4-whiskermenu-plugin xorg xserver-xorg xfce4-indicator-plugin xfce4-terminal numix-icon-theme numix-icon-theme-circle
