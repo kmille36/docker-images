@@ -32,7 +32,7 @@ COPY xfce-perchannel-xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 COPY xfce-perchannel-xml /home/xuser/.config/xfce4/xfconf/xfce-perchannel-xml
 COPY helpers.rc /etc/xdg/xfce4/helpers.rc
 
-RUN ln -s /root/noVNC/vnc_lite.html /root/noVNC/index.html && \
+RUN ln -s /root/noVNC/vnc.html /root/noVNC/index.html && \
     ln -s /usr/share/icons/Numix-Circle /usr/share/icons/KXicons && \
     chown -R xuser /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4 && \
     chown -R xuser /usr/share/icons/KXicons && \
