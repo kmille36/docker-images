@@ -41,9 +41,9 @@ RUN ln -s /root/noVNC/vnc_lite.html /root/noVNC/index.html && \
 
 RUN echo "xfce4-session" > /etc/skel/.xsession
     
-RUN apt-get install -y xfce4-taskmanager mousepad wget
+RUN apt-get install -y xfce4-taskmanager mousepad wget firefox-esr
 
-RUN wget https://oswallpapers.com/wp-content/uploads/2020/04/default-1.jpg -O /usr/share/backgrounds/xfce/default.jpg
+RUN wget https://wallpaperaccess.com/full/3069090.jpg -O /usr/share/backgrounds/xfce/default.jpg
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
