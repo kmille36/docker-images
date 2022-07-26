@@ -42,7 +42,7 @@ RUN echo "xfce4-session" > /etc/skel/.xsession
     
 RUN apt-get install -y xfce4-taskmanager mousepad wget
 
-RUN wget https://www.kali.org/wp-content/uploads/2014/06/kali-wp-june-2014_1920x1080_C.png -O /usr/share/backgrounds/xfce/default.jpg
+RUN wget https://anonyviet.com/wp-content/uploads/2021/12/kali-linux-header.jpg -O /usr/share/backgrounds/xfce/default.jpg
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
