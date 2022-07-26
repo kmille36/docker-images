@@ -1,17 +1,17 @@
 FROM ubuntu:22.10
-MAINTAINER qeeqbox
+MAINTAINER kmille36
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 
-
+#RUN apt update && apt install -y xfce4-terminal htop xfce4-goodies
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends evince file-roller gnome-themes-standard gpicview gtk2-engines-pixbuf ttf-ubuntu-font-family xfce4 htop xfce4-goodies xfce4-whiskermenu-plugin xorg xserver-xorg xfce4-indicator-plugin xfce4-terminal numix-icon-theme numix-icon-theme-circle
+    apt-get install -y --no-install-recommends evince file-roller gpicview gtk2-engines-pixbuf xfce4 htop xfce4-goodies xfce4-whiskermenu-plugin xorg xserver-xorg xfce4-indicator-plugin xfce4-terminal numix-icon-theme numix-icon-theme-circle
 
 RUN apt-get install -y xrdp locales supervisor sudo ibus ibus-mozc dbus dbus-x11
 
 RUN locale-gen en_US && \
-    apt-get install -y git tigervnc-standalone-server && \
+    apt-get install -y git tigervnc-standalone-server wget && \
     git clone https://github.com/novnc/noVNC.git /root/noVNC && \
     git clone https://github.com/novnc/websockify.git /root/noVNC/utils/websockify
 
@@ -26,22 +26,25 @@ RUN sed -i -e 's/LogLevel=DEBUG/LogLevel=CORE/g' /etc/xrdp/xrdp.ini && \
 
 RUN useradd -m -s /bin/bash -G sudo xuser
 
-COPY Adwaita-dark-Xfce-with-Qbox-mw4 /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4
+#COPY Adwaita-dark-Xfce-with-Qbox-mw4 /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4
 COPY xfce-perchannel-xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 COPY xfce-perchannel-xml /home/xuser/.config/xfce4/xfconf/xfce-perchannel-xml
 COPY helpers.rc /etc/xdg/xfce4/helpers.rc
 
-RUN ln -s /root/noVNC/vnc_lite.html /root/noVNC/index.html && \
+RUN apt install firefox -y
+
+RUN ln -s /root/noVNC/vnc.html /root/noVNC/index.html && \
+    sed -i "s/UI.initSetting('resize', 'off');/UI.initSetting('resize', 'remote');/g" /root/noVNC/app/ui.js && \
     ln -s /usr/share/icons/Numix-Circle /usr/share/icons/KXicons && \ 
-    chown -R xuser /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4 && \
+   # chown -R xuser /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4 && \
     chown -R xuser /usr/share/icons/KXicons && \
     chown -R xuser /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 
 RUN echo "xfce4-session" > /etc/skel/.xsession
     
-RUN apt-get install -y xfce4-taskmanager mousepad wget
+RUN apt-get install -y xfce4-taskmanager mousepad 
 
-RUN wget https://anonyviet.com/wp-content/uploads/2021/12/kali-linux-header.jpg -O /usr/share/backgrounds/xfce/default.jpg
+RUN wget https://149366088.v2.pressablecdn.com/wp-content/uploads/2022/03/jammy-jellyfish-wallpaper.jpg -O /usr/share/backgrounds/xfce/default.jpg
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
