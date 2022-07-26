@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y --no-install-recommends evince file-roller gpicview gtk2-engines-pixbuf xfce4 htop xfce4-goodies xfce4-whiskermenu-plugin xorg xserver-xorg xfce4-indicator-plugin xfce4-terminal numix-icon-theme numix-icon-theme-circle
 
-RUN apt-get install -y xrdp locales supervisor sudo ibus ibus-mozc dbus dbus-x11
+RUN apt-get install -y xrdp locales supervisor sudo ibus ibus-mozc dbus dbus-x11 firefox
 
 RUN locale-gen en_US && \
     apt-get install -y git tigervnc-standalone-server wget && \
@@ -31,7 +31,7 @@ COPY xfce-perchannel-xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 COPY xfce-perchannel-xml /home/xuser/.config/xfce4/xfconf/xfce-perchannel-xml
 COPY helpers.rc /etc/xdg/xfce4/helpers.rc
 
-RUN apt install firefox -y
+#RUN apt install firefox -y
 
 RUN ln -s /root/noVNC/vnc.html /root/noVNC/index.html && \
     sed -i "s/UI.initSetting('resize', 'off');/UI.initSetting('resize', 'remote');/g" /root/noVNC/app/ui.js && \
