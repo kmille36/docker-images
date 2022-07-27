@@ -11,7 +11,7 @@ RUN apt-get update && \
 RUN apt-get install -y locales supervisor sudo ibus ibus-mozc dbus dbus-x11 firefox pulseaudio
 
 RUN locale-gen en_US && \
-    apt-get install -y git tigervnc-standalone-server wget && 
+    apt-get install -y git tigervnc-standalone-server wget 
 
 RUN mkdir -p /var/run/dbus 
 
