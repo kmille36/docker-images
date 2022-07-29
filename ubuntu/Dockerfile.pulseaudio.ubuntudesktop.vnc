@@ -30,8 +30,8 @@ RUN useradd -m -s /bin/bash -G sudo xuser
 
 #RUN ln -s /usr/share/icons/Numix-Circle /usr/share/icons/KXicons && \ 
    # chown -R xuser /usr/share/themes/Adwaita-dark-Xfce-with-Qbox-mw4 && \
-    chown -R xuser /usr/share/icons/KXicons && \
-    chown -R xuser /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
+  #  chown -R xuser /usr/share/icons/KXicons && \
+   # chown -R xuser /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
 
 #RUN echo "xfce4-session" > /etc/skel/.xsession
     
