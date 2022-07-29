@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 
 RUN apt-get update && \
-    apt-get install -y ubuntu-desktop stacer
+    apt-get install -y ubuntu-desktop stacer sudo curl
     
 RUN sudo rm /usr/share/polkit-1/actions/org.freedesktop.color.policy
 
