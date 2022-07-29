@@ -37,7 +37,7 @@ RUN apt-get install -y xfce4-taskmanager mousepad
 
 
 #Install Kali-undercover
-RUN wget http://archive.kali.org/kali/pool/main/k/kali-undercover/kali-undercover_2021.1.2_all.deb ; sudo apt install ./kali-undercover_2021.1.2_all.deb -y ; rm -rf kali-undercover_2021.1.2_all.deb
+RUN wget http://archive.kali.org/kali/pool/main/k/kali-undercover/kali-undercover_2021.4.0_all.deb ; sudo apt install ./kali-undercover_2021.4.0_all.deb -y ; rm -rf kali-undercover_2021.4.0_all.deb
 # Install MS Edge.
 RUN wget https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-dev/microsoft-edge-dev_105.0.1329.1-1_amd64.deb ; apt install ./microsoft-edge-dev_105.0.1329.1-1_amd64.deb -y ; rm -rf microsoft-edge-dev_105.0.1329.1-1_amd64.deb
 
